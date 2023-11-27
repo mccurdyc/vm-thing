@@ -34,7 +34,7 @@
             networking.interfaces."eth1".useDHCP = true;
 
             # Initial empty root password for easy login:
-            services.openssh.permitRootLogin = "prohibit-password";
+            services.openssh.settings.PermitRootLogin = "prohibit-password";
 
             users.users.root.openssh.authorizedKeys.keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2cxynJf1jRyVzsOjqRYVkffIV2gQwNc4Cq4xMTcsmN"
