@@ -18,9 +18,10 @@
   services.openssh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    pkgs.curl
-    pkgs.git
-    pkgs.neovim
+    curl
+    git
+    dig
+    neovim
   ];
 
   users.users.root.openssh.authorizedKeys.keys = [

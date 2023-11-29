@@ -13,6 +13,11 @@
             name = "boot";
             size = "1M";
             type = "EF02";
+            content = {
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/boot";
+            };
           };
           esp = {
             name = "ESP";
@@ -21,7 +26,7 @@
             content = {
               type = "filesystem";
               format = "vfat";
-              mountpoint = "/boot";
+              mountpoint = "/boot/efi";
             };
           };
           root = {
