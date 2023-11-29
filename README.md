@@ -51,6 +51,24 @@ sda
 
 Oh this is expected. `nixos-anywhere` command doesn't do anything with the flake, just gets the nixos installer.
 
+On target
+
+2. `nix shell 'nixpkgs#git`
+3. `nixos-rebuild switch --verbose --flake 'git+https://github.com/mccurdyc/vm-thing.git#lvk'
+
+Why is this erroring?
+
+```bash
+at /nix/store/7fkwd086mmlkpmsk1xyn23h4rlak8qrz-source/lib/customisation.nix:143:45: (source not available)
+error: getting status of '/nix/store/7fkwd086mmlkpmsk1xyn23h4rlak8qrz-source': No such file or directory
+```
+
+Tried
+
+- `nix-channel --update`
+- `nix flake update` (no git diff after, but does this force it to "fetch" flake inputs?). Should I use `nix flake prefetch`?
+
+
 ## Commands
 
 ### Create plain Ubuntu machine
