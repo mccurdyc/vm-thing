@@ -18,18 +18,17 @@
 
       perSystem = { config, pkgs, system, ... }: {
         formatter = pkgs.nixpkgs-fmt;
-
         devShells.default = import ./shell.nix { inherit pkgs system; };
-        };
+      };
 
       flake = {
-    nixosConfigurations.lvk = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        disko.nixosModules.disko
-        ./configuration.nix
-      ];
+        nixosConfigurations.lvk = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            disko.nixosModules.disko
+            ./configuration.nix
+          ];
+        };
+      };
     };
-    };
-  };
 }
