@@ -34,6 +34,23 @@ sda
 
 - Why are they not mounted where I've specified?
 
+```bash
+[root@nixos:~]# cat /etc/nixos/configuration.nix
+{ config, pkgs, ... }:
+
+{
+  imports = [  ];
+}
+```
+
+- Why doesn't the target machine get the configuration I specify in my flake?
+
+> The new server's configurations are defined in the flake. nixos-anywhere does not create etc/nixos/configuration.nix, since it expects the server to be administered remotely.
+
+    - Seems like it's just using the nixos-anywhere "no configuration".
+
+Oh this is expected. `nixos-anywhere` command doesn't do anything with the flake, just gets the nixos installer.
+
 ## Commands
 
 ### Create plain Ubuntu machine
